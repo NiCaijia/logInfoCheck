@@ -1,0 +1,1 @@
+pip install --no-index --find-links=XXX\XXX\loginfoCheck_v0.6.2\libs\  -r requirements.txt
