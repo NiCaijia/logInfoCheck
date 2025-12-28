@@ -20,22 +20,23 @@ def result_print_txt(regex_list,data_l30_list,data_l20_list):
 
         c = 0
         newpath = ArgumentParser.args.savename + ".txt"
-        f1 = open(newpath,"w",encoding='utf-8')
+        
+        # 使用 with 语句自动管理文件，确保文件正确关闭
+        with open(newpath, "w", encoding='utf-8') as f1:
+            f1.write('C3字段匹配结果' + '\n')
+            for l in data_l30_list:
+                f1.write(str(l) + '\n')
+                c = c+1
 
-        f1.write('C3字段匹配结果' + '\n')
-        for l in data_l30_list:
-            f1.write(str(l) + '\n')
-            c = c+1
+            f1.write('\n' + 'C2字段匹配结果' + '\n')
+            for l in data_l20_list:
+                f1.write(str(l) + '\n')
+                c = c+1
 
-        f1.write('\n' + 'C2字段匹配结果' + '\n')
-        for l in data_l20_list:
-            f1.write(str(l) + '\n')
-            c = c+1
-
-        f1.write('\n' + 'C3C2正则字段匹配结果' + '\n')
-        for l in regex_list:
-            f1.write(str(l) + '\n')
-            c = c+1
+            f1.write('\n' + 'C3C2正则字段匹配结果' + '\n')
+            for l in regex_list:
+                f1.write(str(l) + '\n')
+                c = c+1
 
         return c
 
